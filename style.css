@@ -3,6 +3,10 @@
     padding:0;
 }
 
+img{
+    width:100%;
+}
+
 .example-container{
     display:flex;
     gap:20px;
@@ -30,4 +34,13 @@
     font-weight:bold;
     text-transform:uppercase;
     margin-bottom:15px;
+}
+
+/* linear section start */
+
+.linear-section{
+    background: linear-gradient(#008000c9,#800080b3), url(./photos/github_profile.jpeg);
+    background-repeat:no-repeat;
+    height:600px;
+
 }
