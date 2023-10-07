@@ -3,6 +3,10 @@
     padding:0;
 }
 
+:root{
+    --primary-color : purple;
+}
+
 img{
     width:100%;
 }
@@ -13,12 +17,17 @@ img{
 }
 
 .sub-container{
+    border : 1px solid var(--primary-color);
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     margin-right:15px;
     text-align: justify;
+}
+
+.sub-container p {
+    margin: 5px;
 }
 
 .sub-container:first-child{
@@ -33,14 +42,15 @@ img{
 .title{
     font-weight:bold;
     text-transform:uppercase;
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
 
 /* linear section start */
 
 .linear-section{
-    background: linear-gradient(#008000c9,#800080b3), url(./photos/github_profile.jpeg);
+    background: linear-gradient(#008000c9,#800080bf), url(./photos/github_profile.jpeg);
     background-repeat:no-repeat;
     height:600px;
+    margin-top:20px;
 
 }
