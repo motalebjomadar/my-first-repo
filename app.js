@@ -1,12 +1,21 @@
-const textBtn = document.getElementById('submit-btn');
-const textBox = document.getElementById('text-content');
-const mainContainer = document.getElementById('text-container');
+const btn = document.getElementById('delete-btn');
+const textBox = document.getElementById('text-box');
+const title = document.getElementById('section-title');
 
-textBtn.addEventListener('click',function() {
-    const comment = textBox.value;
-    const p = document.createElement('p');
-    p.innerText = comment;
-    mainContainer.appendChild(p);
-    textBox.value = '';
+btn.addEventListener('click', function() {
+    title.style.visibility = 'hidden';
 })
+
+textBox.addEventListener('keyup', function(event) {
+    if(textBox.value == 'delete') {
+        btn.removeAttribute('disabled');
+    }
+    else{
+        btn.setAttribute('disabled', true);
+    }
+});
+
+
+
+
 
