@@ -4,41 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div id="container">
-        <div id="wrapper">
-            <div id="deposit">
-                <h2>TOTAL DEPOSIT</h2>
-                <h3>$ <span id="deposit-total">00</span></h3>
-            </div>
-            <div id="withdraw">
-                <h2>TOTAL WITHDRAW</h2>
-                <h3>$ <span id="withdraw-total">00</span></h3>
-            </div>
-            <div id="balance">
-                <h2>TOTAL BALANCE</h2>
-                <h3>$ <span id="current-balance">00</span></h3>
-            </div>
+<body class="bg-zinc-300">
+    <div class="flex justify-evenly gap-2 w-5/6 m-auto mt-4">
+        <div class="flex flex-col items-center bg-green-300 w-2/6 py-8 rounded text-3xl font-extrabold text-white">
+            <h1>Total Deposit</h1>
+            <h2>$<span id="deposit-total">00</span></h2>
+        </div>
+        <div class="flex flex-col items-center bg-sky-300 w-2/6 py-8 rounded text-3xl font-extrabold text-white">
+            <h1>Total Withdraw</h1>
+            <h2>$<span id="withdraw-total">00</span></h2>
+        </div>
+        <div class="flex flex-col items-center bg-purple-300 w-2/6 py-8 rounded text-3xl font-extrabold text-white">
+            <h1>Total Balance</h1>
+            <h2>$<span id="balance-total">00</span></h2>
         </div>
     </div>
-
-<!-- Button area -->
-
-    <div id="button-container">
-        <div id="wrapper">
-            <div id="deposit-field">
-                <input  id="deposit-input" type="text">
-                <button id="deposit-button">DEPOSIT</button>
-            </div>
-            <div id="withdraw-field">
-                <input id="withdraw-input" type="text">
-                <button id="withdraw-button">WITHDRAW</button>
-            </div>
+<!-- Button section -->
+    <div class="flex justify-evenly gap-2 w-5/6 m-auto mt-2">
+        <div class="flex flex-col items-center gap-2 bg-rose-300 w-3/6 py-8 rounded text-3xl font-extrabold">
+            <input id="deposit-input" class="rounded w-4/5 pl-2">
+            <button id="deposit-button" class="bg-green-500 w-4/5 rounded text-2xl py-1 text-white">DEPOSIT</button>
+        </div>
+        <div class="flex flex-col items-center gap-2 bg-pink-300 w-3/6 py-8 rounded text-3xl font-extrabold ">
+            <input id="withdraw-input" class="rounded w-4/5 pl-2">
+            <button id="withdraw-button" class="text-white bg-green-500 w-4/5 rounded text-2xl py-1">WITHDRAW</button>
         </div>
     </div>
-
 
 
     <script src="app.js"> </script>

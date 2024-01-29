@@ -1,52 +1,50 @@
-function getInputNumber(inputId){
+function updateInputValue(inputId){
     const inputField = document.getElementById(inputId);
-    const fieldText = inputField.value ;
-    const inputNumber = parseFloat(fieldText);
+    const inputFieldText = inputField.value ;
+    const newNumber = parseFloat(inputFieldText);
     inputField.value = '';
-    return inputNumber;
+    return newNumber;
 }
-// User can't withdraw big amount from current amount
-function controlWithdrawLimit(fieldId) {
-    const currentTag = document.getElementById(fieldId);
-    const currentText = currentTag.innerText;
-    const value = parseFloat(currentText);
-    return value ;
-
+function controlWithdrawLimit(){
+    const balanceField = document.getElementById('balance-total');
+    const balanceFieldText = balanceField.innerText ;
+    const previousBalance = parseFloat(balanceFieldText);
+    return previousBalance;
 }
 function updateTotal(totalId, amount){
-    const getTag = document.getElementById(totalId);
-    const totalTagText = getTag.innerText;
-    const previousNumber = parseFloat(totalTagText);
-    const newNumber = previousNumber + amount ;
-    getTag.innerText = newNumber;
+    const totalField = document.getElementById(totalId);
+    const totalIdText = totalField.innerText ;
+    const previousNumber = parseFloat(totalIdText);
+    const newTotal = previousNumber + amount ;
+    totalField.innerText = newTotal ;
 }
-function currentBalance(amount, isAdding ){
-    const currentTag = document.getElementById('current-balance');
-    const currentText = currentTag.innerText;
-    const previousNumber = parseFloat(currentText);
+function currentBalance(amount, isAdd){
+    const balanceField = document.getElementById('balance-total');
+    const balanceFieldText = balanceField.innerText ;
+    const previousBalance = parseFloat(balanceFieldText);
     let newBalance;
-    if( isAdding == true ){
-        newBalance = previousNumber + amount ;
+    if(isAdd){
+        newBalance = previousBalance + amount ;
     }
     else{
-        newBalance = previousNumber - amount ;
+        newBalance = previousBalance - amount ;
     }
-    currentTag.innerText = newBalance;
+    balanceField.innerText = newBalance ;
 }
 
 document.getElementById('deposit-button').addEventListener('click',function(){
-    const amount = getInputNumber('deposit-input');
+    const amount = updateInputValue('deposit-input');
     if( amount > 0 ){
-        updateTotal('deposit-total', amount );
+        updateTotal('deposit-total', amount);
         currentBalance(amount, true );
     }
     
 })
 document.getElementById('withdraw-button').addEventListener('click',function(){
-    const amount = getInputNumber('withdraw-input');
-    const balance = controlWithdrawLimit('current-balance');
-    if( amount > 0 && amount <= balance ) {
-        updateTotal('withdraw-total', amount);
+    const amount = updateInputValue('withdraw-input');
+    const balance = controlWithdrawLimit();
+    if( amount > 0 && amount <= balance ){
+        updateTotal('withdraw-total', amount );
         currentBalance(amount, false );
-    }
+    }  
 })
